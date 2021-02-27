@@ -37,7 +37,7 @@
 
     <title>Design Explorer 2</title>
 
-    <link rel="shortcut icon" href="favicon.ico">
+    <link rel="shortcut icon" href="favicon.png">
     <link rel="icon" type="image/png" href="favicon.png">
 
     <!-- D3 -->
@@ -276,7 +276,7 @@
                 </button>
 
                 <div class="navbar-header" title="Design Explorer">
-                    <a href="http://tt-acm.github.io/DesignExplorer/"> <img style="max-width:350px; padding-top: 10px;" src="./img/DesignExplorerLogo3.png"></a>
+                    <a href="https://echoesparis.github.io/DesignExplorer/"> <img style="max-width:100px; padding-top: 10px;" src="./img/thumbnail.jpg"></a>
                 </div>
             </div>
 
@@ -345,7 +345,7 @@
                                     <button id="savecsv" class="btn btn-default btn-xs" onclick="saveToCSV()">Save Selection to File</button>
                                     <button id="stilllink" class="btn btn-default btn-xs" onclick="showStillLink()">My Static Link</button>
                                     <a class="btn btn-default btn-xs" href="http://www.mpendesign.com/category/tutorial/" target="_blank">Tutorial</a>
-                                    <a class="btn btn-default btn-xs" href="https://www.thorntontomasetti.com/services/sustainability/" target="_blank">Services</a>
+                                    <a class="btn btn-default btn-xs" href="https://www.echoes.paris" target="_blank">Services</a>
                                     <a href="https://github.com/tt-acm/DesignExplorer/wiki" class="btn btn-default btn-xs" target="_blank">
                                         Info <span class="glyphicon glyphicon-new-window"></span>
                                     </a>
@@ -382,8 +382,8 @@
                                     <button type="button" class="btn btn-default btn-xs" id="scatter-fullscreen-toggle" title="Full Screen">
                                         <span class="glyphicon glyphicon-triangle-left" aria-hidden="true"></span>
                                     </button>
-                                    <a id="copyRightButton" href="http://core.thorntontomasetti.com/" class="btn btn-default btn-xs" target="_blank" style="width: calc(100% - 46px);">
-                                        &copy; 2019 Thornton Tomasetti
+                                    <a id="copyRightButton" href="http://echoes.paris/" class="btn btn-default btn-xs" target="_blank" style="width: calc(100% - 46px);">
+                                        &copy; 2021 ECHOES.PARIS
                                     </a>
                                     <!--<button type="button" class="btn btn-default btn-xs" id="rcgraph" data-toggle="collapse" data-target="#radarChart">
                                         <span class="glyphicon glyphicon-triangle-bottom" aria-hidden="true"></span>
@@ -478,44 +478,20 @@
             <!-- /#Welcome content -->
             <div class="row-fluid col-lg-12 row-centered vertical-center fullscreen popupWindow" id="welcome">
                 <div class="col-sm-12 col-centered" id="welcomeContainer">
+                    
                     <button class="btn btn-default btn-sm pull-right popupWindowClose">
                         <span class="glyphicon glyphicon-remove"></span>
                     </button>
-                    <br>
-                    <h1 class="text-center" style="margin-top: 1em;"> Welcome to Design Explorer!</h1>
-                    <h4 class="text-center">
-                        Design Explorer is an open source tool for exploring multi-dimensional parametric studies!
-                    </h4>
-                    <br>
+                	<br/>
+                	<br/>
+                    
+                    <h2 class="text-center"><b>ECHOES.PARIS | DESIGN EXPLORER</b></h2> 
 
-                    <h5 class="text-center">Try one of following sample design sets or load your own data.<a href="http://www.mpendesign.com/category/tutorial/" target="_blank"> (Tutorial)</a></h5> 
-                    <h5 class="text-center"></h5>
-                    <div class="row">
-                        <div class="col-sm-4">
-                            <img src="img/RedBox.gif" class="sampleImage image-rounded" id="sample1">
-                        </div>
-                        <div class="col-sm-4">
-                            <img src="img/Daylighting.gif" class="sampleImage image-rounded" id="sample2">
-                        </div>
-                        <div class="col-sm-4">
-                            <img src="img/BoxBuilding.gif" class="sampleImage image-rounded" id="sample3">
-                        </div>
-                        <br>
-                        <br>
-                    </div>
-                    <div class="col-lg-12" style="position: absolute;bottom: 2em;width: calc(100% - 60px);">
-                        <h3 class="text-center"> Happy Exploring! </h3>
-                        <h5 class="text-center">v2 (08/15/2019)</h5>
-                        <br>
+                    <div >
                         <h5 class="text-center">
-                            &copy; CORE studio | Thornton Tomasetti |
-                            <a href="http://core.thorntontomasetti.com/about" target="_blank"> About</a> |
-                            <a href="http://core.thorntontomasetti.com/about/services" target="_blank">Services</a> |
-                            <a href="http://core.thorntontomasetti.com/about/contact" target="_blank">Contact</a>
-                        </h5>
-                        <h5 class="text-center">
-                            Updated by
-                            <a href="http://www.mpendesign.com" target="_blank">Mingbo Peng</a>
+                            Adapted from 
+                            <a href="http://core.thorntontomasetti.com/about" target="_blank"> &copy; CORE studio | Thornton Tomasetti</a> | 
+                            <a href="http://tt-acm.github.io/DesignExplorer/" target="_blank">Design Explorer v2 (08/15/2019)</a> |
                         </h5>
                     </div>
                 </div>
@@ -1306,6 +1282,7 @@
     </script>
 
     <!-- NOTE:  draw parallel coordinates graph -->
+    
     <script type="text/javascript">
         var graph;
         //set up heights of divs
@@ -1315,7 +1292,10 @@
         var pcIsColoredBy;
 
         var color = d3.scale.linear()
-            .range(["#3182bd", "#f33"]);
+            .range(["#89bf78","#ed513f"]);
+            //.range(["#3182bd","#f33"]);
+          
+
 
 
         var scatterHeight = d3.select("#ScChartWrapper").style("height").replace("px", "");
