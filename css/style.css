@@ -219,15 +219,15 @@ a#copyRightButton {
 }
 /*ECHOES*/
 .popupWindow div.col-centered{
-    background-color: #FFFFFF;
+    background-color: #FFFFFF99;
     z-index: 1000;
- 
+    
     margin-left: auto;
     margin-right: auto;
     max-height: 500px; 
     min-height: 200px;
-    min-width: 450px;
-    max-width: 600px;
+    min-width: 360px;
+    
     padding: 2em;
     
 }
