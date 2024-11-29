@@ -284,19 +284,22 @@
             <div class="collapse navbar-collapse" id="buttons-navbar-collapse-1">
                 <ul class="nav navbar-nav">
                     <li>
-                        <!--button to load csv uncommented-->
                         <p class="navbar-text">
                             <button id="showLoadData" class="file-upload" style="border-radius: 20px;">Get Data</button>
                         </p>
                     </li>
+                    <li>
+                        <p class="navbar-text">
+                            <button id="themeToggleButton" class="file-upload" style="border-radius: 20px;">Mode</button>
+                        </p>
+                    </li>
                 </ul>
-                <div id = "navbar-studyInfo">
+                <div id="navbar-studyInfo">
                     <h4></h4>
                     <h6></h6>
                 </div>
             </div>
             <!-- /.navbar-collapse -->
-
         </div>
     </nav>
 
@@ -488,12 +491,12 @@
                    	 <a href="https://echoes.paris"> <img style="max-width:100px; padding-top: 10px;" src="./img/e_logo.png"></a>
                 	</div>
                     
-                    <h4 class="text-center"><b>Design Explorer</b></h4> 
+                    <h4 class="text-center"><b></b></h4> 
                     
 
                     <div >
                         <p class="text-center">
-                            Adapted from <a href="http://core.thorntontomasetti.com/about" target="_blank"> &copy; CORE studio | Thornton Tomasetti</a> | <a href="http://tt-acm.github.io/DesignExplorer/" target="_blank">Design Explorer v2 (02/27/20121)</a>
+                            Adapted from : </a> | <a href="http://tt-acm.github.io/DesignExplorer/" target="_blank">Design Explorer v2 (02/27/20121)</a>
                         </p>
                     </div>
                 </div>
@@ -1298,11 +1301,13 @@
         var color = d3.scale.linear()
           	//ECHOES https://loading.io/color/random/
         	//.range(["#f0f0f0","#000000"]);
-        	.range(["#fdbac5","#66815c"]);
+        	//.range(["#fdbac5","#66815c"]);
             //.range(["#89bf78","#ed513f"]);
             
             //default TT 
             //.range(["#3182bd","#f33"]);
+
+            .range(["#b9fbc0", "#005f73"]); // Light green to dark teal
           
 
 
@@ -1391,7 +1396,7 @@
         // update pc chart labels and axis color based on input and outputs parameters
         function updateLabels() {
             // modify labels
-            var inputLabelColor = "black",
+            var inputLabelColor = "grey",
                 outputLabelColor = "steelblue",
                 inputLabels = d3.keys(inputData[0]),
                 outputLabels = d3.keys(outputData[0]),
@@ -2032,9 +2037,9 @@
             } else {
                 // load default data
                 //parse the csv data from the design_explorer_data folder
-                d3.csv("design_explorer_data/default_onload.csv", function (data) {
+                d3.csv("design_explorer_data/AIAbuilding.csv", function (data) {
                     loadDataToDesignExplorer(data);
-                    loadSetting("design_explorer_data/DefaultData/settings.json");
+                    loadSetting("design_explorer_data/AIAbuilding/settings.json");
                     });
 
             }
@@ -2366,7 +2371,6 @@
                         }
                     }
                 }
-
             }
         }
 
@@ -3011,6 +3015,60 @@
 
     </script>
 
+    <!-- Add the toggle switch in the desired location, e.g., in the navbar -->
+    <script type="text/javascript">
+        document.getElementById('themeToggle').addEventListener('change', function() {
+            if (this.checked) {
+                document.body.classList.remove('light-mode');
+                document.body.classList.add('dark-mode');
+            } else {
+                document.body.classList.remove('dark-mode');
+                document.body.classList.add('light-mode');
+            }
+        });
+
+        // Optional: Set initial theme based on user preference or default
+        if (localStorage.getItem('theme') === 'dark') {
+            document.body.classList.add('dark-mode');
+            document.getElementById('themeToggle').checked = true;
+        } else {
+            document.body.classList.add('light-mode');
+        }
+
+        // Save theme preference
+        document.getElementById('themeToggle').addEventListener('change', function() {
+            if (this.checked) {
+                localStorage.setItem('theme', 'dark');
+            } else {
+                localStorage.setItem('theme', 'light');
+            }
+        });
+    </script>
+
+    <script type="text/javascript">
+        // Function to toggle the theme
+        function toggleTheme() {
+            const isDarkMode = document.body.classList.toggle('dark-mode');
+            document.body.classList.toggle('light-mode', !isDarkMode);
+            document.getElementById('themeToggleButton').textContent = isDarkMode ? 'Light' : 'Dark';
+            
+            // Save theme preference
+            localStorage.setItem('theme', isDarkMode ? 'dark' : 'light');
+        }
+
+        // Event listener for the button
+        document.getElementById('themeToggleButton').addEventListener('click', toggleTheme);
+
+        // Optional: Set initial theme based on user preference or default
+        if (localStorage.getItem('theme') === 'dark') {
+            document.body.classList.add('dark-mode');
+            document.body.classList.remove('light-mode');
+            document.getElementById('themeToggleButton').textContent = 'Light';
+        } else {
+            document.body.classList.add('light-mode');
+            document.getElementById('themeToggleButton').textContent = 'Dark';
+        }
+    </script>
 
 </body>
 
