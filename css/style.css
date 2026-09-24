@@ -5,12 +5,12 @@ body {
     transition: background-color 0.3s, color 0.3s;
 }
 
-body.light-mode {
+[data-theme="light"] body {
     background-color: white;
     color: grey;
 }
 
-body.dark-mode {
+[data-theme="dark"] body {
     background-color: #121212; /* Dark background */
     color: rgb(221, 221, 221); /* Light text */
 }
@@ -20,9 +20,9 @@ body.dark-mode {
     
 }
 
-body.dark-mode .modal-content, 
-body.dark-mode #viewer2d, 
-body.dark-mode #viewer3d {
+[data-theme="dark"] .modal-content, 
+[data-theme="dark"] #viewer2d, 
+[data-theme="dark"] #viewer3d {
     background-color: #1e1e1e; /* Dark mode */
 }
 
@@ -378,12 +378,12 @@ g.cell text {
 .col-0 { width: 180px; }
 
 /* Define colors for marks in light mode */
-body.light-mode .mark {
+[data-theme="light"] .mark {
     stroke: grey; /* Change this to your desired color */
 }
 
 /* Define colors for marks in dark mode */
-body.dark-mode .mark {
+[data-theme="dark"] .mark {
     stroke: grey; /* Change this to your desired color */
 }
 
@@ -395,19 +395,19 @@ body.dark-mode .mark {
 }
 
 /* Light mode styles */
-body.light-mode .btn.btn-default {
+[data-theme="light"] .btn.btn-default {
     color: black; /* Text color for light mode */
 }
 
-body.light-mode .btn.btn-default:hover {
+[data-theme="light"] .btn.btn-default:hover {
     opacity: 1; /* Full opacity on hover */
 }
 
 /* Dark mode styles */
-body.dark-mode .btn.btn-default {
+[data-theme="dark"] .btn.btn-default {
     color: white; /* Text color for dark mode */
 }
 
-body.dark-mode .btn.btn-default:hover {
+[data-theme="dark"] .btn.btn-default:hover {
     opacity: 1; /* Full opacity on hover */
 }
