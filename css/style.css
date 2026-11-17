@@ -1,29 +1,53 @@
+/* Colour tokens: light is the default, dark overrides below */
+:root {
+    --page-bg: white; /* page background */
+    --viewer-bg: white; /* modal and 2D/3D viewer panels */
+    --output-text: red; /* <output> value readouts (slider values) */
+    --thumb-hover-border: black; /* outline of the hovered sample thumbnail */
+    --upload-bg: #ffffff27; /* CSV file-upload button wash */
+    --upload-border: grey; /* CSV file-upload button outline */
+    --backdrop: rgba(0, 0, 0, 0.30); /* dimming overlay behind popups and modals */
+    --popup-bg: rgba(211, 211, 211, 0.932); /* welcome / load-data popup card */
+    --popup-border: rgb(255, 255, 255); /* popup card outline */
+    --popup-shadow: rgb(0 0 0 / 25%); /* popup card drop shadow */
+    --popup-text: black; /* popup card text */
+    --chart-wrapper-bg: rgba(255, 255, 255, 0); /* transparent scatter-chart wrapper */
+    --table-row-stripe: rgba(0,0,0,0.03); /* odd-row stripe in the data table */
+    --table-row-hover: lightskyblue; /* hovered data-table row */
+    --mark-stroke: grey; /* parallel-coordinates mark lines */
+    --btn-bg: rgba(128, 128, 128, 0.089); /* default toolbar button wash */
+}
+
+[data-theme="light"] {
+    --page-text: grey; /* body text, light theme */
+    --btn-text: black; /* toolbar button label */
+}
+
+[data-theme="dark"] {
+    --page-bg: #121212; /* page background, dark theme */
+    --page-text: rgb(221, 221, 221); /* body text, dark theme */
+    --viewer-bg: #1e1e1e; /* modal and viewer panels, dark theme */
+    --btn-text: white; /* toolbar button label, dark theme */
+}
+
 body {
     font-family: sans-serif;
     font-size: 12px;
-    background-color: white;
+    background-color: var(--page-bg);
     transition: background-color 0.3s, color 0.3s;
 }
 
 [data-theme="light"] body {
-    background-color: white;
-    color: grey;
+    color: var(--page-text);
 }
 
 [data-theme="dark"] body {
-    background-color: #121212; /* Dark background */
-    color: rgb(221, 221, 221); /* Light text */
+    color: var(--page-text);
 }
 
 .modal-content, #viewer2d, #viewer3d{
-    background-color: white;
+    background-color: var(--viewer-bg);
     
-}
-
-[data-theme="dark"] .modal-content, 
-[data-theme="dark"] #viewer2d, 
-[data-theme="dark"] #viewer3d {
-    background-color: #1e1e1e; /* Dark mode */
 }
 
 input {
@@ -37,7 +61,7 @@ output {
     display: inline-block;
     font-size: 11px;
     font-weight: bold;
-    color: red;
+    color: var(--output-text);
 }
 /* centered columns styles */
 
@@ -194,7 +218,7 @@ rect.disabled {
 }
 
 .sampleImage:hover img {
-    border-color: black;
+    border-color: var(--thumb-hover-border);
     border-width: .2em solid;
 }
 
@@ -203,8 +227,8 @@ rect.disabled {
     position: relative;
     overflow: hidden;
     height: 2.2em;
-    background-color: #ffffff27;
-    border: solid 1px grey;
+    background-color: var(--upload-bg);
+    border: solid 1px var(--upload-border);
     width: 10em;
     margin-left: -4px;
 }
@@ -229,7 +253,7 @@ a#copyRightButton {
 
 .popupWindow, 
 .modal-backdrop{
-    background-color: rgba(0, 0, 0, 0.30);
+    background-color: var(--backdrop);
 }
 
 #welcomeContainer .col-sm-4 {
@@ -240,11 +264,11 @@ a#copyRightButton {
 }
 /*ECHOES*/
 .popupWindow div.col-centered{
-    background-color: rgba(211, 211, 211, 0.932);
+    background-color: var(--popup-bg);
     	/*backdrop-filter: blur(2px);*/
     border-radius: 10px;
-    border: solid 3px rgb(255, 255, 255);
-    box-shadow: 0px 5px 10px rgb(0 0 0 / 25%);
+    border: solid 3px var(--popup-border);
+    box-shadow: 0px 5px 10px var(--popup-shadow);
     z-index: 1000;
     
     margin-left: auto;
@@ -254,12 +278,12 @@ a#copyRightButton {
     min-width: 360px;
     
     padding: 2em;
-    color: black;
+    color: var(--popup-text);
     
 }
 
 #ScChartWrapper {
-    background-color: rgba(255, 255, 255, 0);
+    background-color: var(--chart-wrapper-bg);
 }
 
 #ScChartWrapper.rightChartFullScreenToggled{
@@ -343,7 +367,7 @@ g.cell text {
 
 #tbContainer { padding-left: 60px;}
 /* .row, .header {clear: left;font-size: 12px;line-height: 18px;height: 18px;} */
-#tbContainer .row:nth-child(odd) { background: rgba(0,0,0,0.03); }
+#tbContainer .row:nth-child(odd) { background: var(--table-row-stripe); }
 #tbContainer .header {
     font-weight: bold;
     display: table;
@@ -369,7 +393,7 @@ g.cell text {
   cursor: default;
 }
 #tbContainer .row:hover {
-  background: lightskyblue;
+  background: var(--table-row-hover);
   -webkit-transition: all 0.2s;
   -moz-transition: all 0.2s;
   transition: all 0.2s;
@@ -379,16 +403,16 @@ g.cell text {
 
 /* Define colors for marks in light mode */
 [data-theme="light"] .mark {
-    stroke: grey; /* Change this to your desired color */
+    stroke: var(--mark-stroke);
 }
 
 /* Define colors for marks in dark mode */
 [data-theme="dark"] .mark {
-    stroke: grey; /* Change this to your desired color */
+    stroke: var(--mark-stroke);
 }
 
 .btn.btn-default {
-    background-color: rgba(128, 128, 128, 0.089); /* Background color */
+    background-color: var(--btn-bg);
     border: none; /* Remove border */
     opacity: 0.7; /* Adjust opacity as needed */
     transition: opacity 0.3s; /* Smooth transition for hover effect */
@@ -396,7 +420,7 @@ g.cell text {
 
 /* Light mode styles */
 [data-theme="light"] .btn.btn-default {
-    color: black; /* Text color for light mode */
+    color: var(--btn-text);
 }
 
 [data-theme="light"] .btn.btn-default:hover {
@@ -405,7 +429,7 @@ g.cell text {
 
 /* Dark mode styles */
 [data-theme="dark"] .btn.btn-default {
-    color: white; /* Text color for dark mode */
+    color: var(--btn-text);
 }
 
 [data-theme="dark"] .btn.btn-default:hover {
